@@ -1,0 +1,14 @@
+{% extends './_layout.njk' %}
+
+{% block title %}
+Здесь будет страница
+{% endblock %}
+
+
+{% block content %}
+    <h1>Всё очень просто!</h1>
+    <div class="welcome">
+
+    {% include "./components/card.njk" %}
+    </div>
+{% endblock %}

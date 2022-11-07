@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+    nodejs:
+        image: node:14-alpine
+        user: '1000'
+        hostname: ${COMPOSE_NODEJS_HOSTNAME}
+        container_name: ${COMPOSE_NODEJS_CONTAINER}
+        networks:
+            app-network:
+                ipv4_address: 192.168.10.254
+        ports:
+            - "${DEV_SERVER_PORT_HOST}:${DEV_SERVER_PORT}"
+        volumes:
+            - .:/var/www
+        working_dir: /var/www
+
+networks:
+    app-network:
+        name: app-network
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: "192.168.10.0/24"
+                  gateway: "192.168.10.1"

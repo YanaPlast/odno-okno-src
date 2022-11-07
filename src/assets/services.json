@@ -1,0 +1,88 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "dataSphere": 1,
+      "dataService": "a",
+      "title": "Статус в реестре студентов",
+      "text": "Являясь всего лишь частью общей картины, базовые сценарии поведения пользователей неоднозначны и будут обнародованы. Но выбранный нами инновационный путь однозначно определяет каждого участника как способного принимать собственные решения касаемо дальнейших направлений развития.",
+      "label": "доступно онлайн",
+      "labelClass": "card__tag_blue",
+      "buttons": [
+        {
+          "class": "button_blue",
+          "text": "Портал",
+          "url": "https://#1",
+          "svg": "<svg class=\"button__icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M19 9.00098V5.00098H15\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                    <path d=\"M13 11.001L19 5.00098\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                    <path d=\"M20 13.001V15.001C20 17.7624 17.7614 20.001 15 20.001H9C6.23858 20.001 4 17.7624 4 15.001V9.00098C4 6.23955 6.23858 4.00098 9 4.00098H11\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>"
+        },
+        {
+          "class": "button_grey",
+          "text": "Скачать документ",
+          "url": "https://#3",
+          "svg": "<svg class=\"button__icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                                <path d=\"M13 21.001H17C18.6569 21.001 20 19.6578 20 18.001V8.51029C20 7.71464 19.6839 6.95158 19.1213 6.38898L16.612 3.87966C16.0494 3.31705 15.2863 3.00098 14.4907 3.00098H7C5.34315 3.00098 4 4.34412 4 6.00098V13.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M20 8.50098H16.5C15.3954 8.50098 14.5 7.60555 14.5 6.50098V3.00098\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M7 16.001V21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M9 19.001L7 21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M5 19.001L7 21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                            </svg>"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "dataSphere": 1,
+      "dataService": "b",
+      "title": "Справка для военкомата",
+      "text": "Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: консультация с широким активом предопределяет высокую востребованность системы обучения кадров, соответствующей насущным потребностям. Как принято считать, интерактивные прототипы указаны как претенденты на роль ключевых факторов.",
+      "label": "только лично",
+      "labelClass": "card__tag_grey",
+      "buttons": [
+        {
+          "type": "portal",
+          "class": "button_blue",
+          "text": "Портал",
+          "url": "https://#1",
+          "svg": "<svg class=\"button__icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M19 9.00098V5.00098H15\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                    <path d=\"M13 11.001L19 5.00098\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                    <path d=\"M20 13.001V15.001C20 17.7624 17.7614 20.001 15 20.001H9C6.23858 20.001 4 17.7624 4 15.001V9.00098C4 6.23955 6.23858 4.00098 9 4.00098H11\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                </svg>"
+        },
+        {
+          "type": "download",
+          "class": "button_grey",
+          "text": "Скачать документ",
+          "url": "https://#2",
+          "svg": "<svg class=\"button__icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                                <path d=\"M13 21.001H17C18.6569 21.001 20 19.6578 20 18.001V8.51029C20 7.71464 19.6839 6.95158 19.1213 6.38898L16.612 3.87966C16.0494 3.31705 15.2863 3.00098 14.4907 3.00098H7C5.34315 3.00098 4 4.34412 4 6.00098V13.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M20 8.50098H16.5C15.3954 8.50098 14.5 7.60555 14.5 6.50098V3.00098\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M7 16.001V21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M9 19.001L7 21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M5 19.001L7 21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                            </svg>"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "dataSphere": 2,
+      "dataService": "a",
+      "title": "Отчет по практике",
+      "text": "Предварительные выводы неутешительны: современная методология разработки является качественно новой ступенью укрепления моральных ценностей.",
+      "label": "только лично",
+      "labelClass": "card__tag_grey",
+      "buttons": [
+        {
+          "type": "portal",
+          "class": "button_blue",
+          "text": "Портал",
+          "url": "https://#1",
+          "svg": "<svg class=\"button__icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\">\n                                    <path d=\"M19 9.00098V5.00098H15\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                    <path d=\"M13 11.001L19 5.00098\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                    <path d=\"M20 13.001V15.001C20 17.7624 17.7614 20.001 15 20.001H9C6.23858 20.001 4 17.7624 4 15.001V9.00098C4 6.23955 6.23858 4.00098 9 4.00098H11\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                </svg>"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "dataSphere": 2,
+      "dataService": "b",
+      "title": "Об условиях обучения лиц с ОВЗ",
+      "text": "Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: консультация с широким активом предопределяет высокую востребованность системы обучения кадров, соответствующей насущным потребностям.",
+      "label": "доступно онлайн",
+      "labelClass": "card__tag_blue",
+      "buttons": [
+        {
+          "type": "download",
+          "class": "button_grey",
+          "text": "Скачать документ",
+          "url": "https://#2",
+          "svg": "<svg class=\"button__icon\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                                <path d=\"M13 21.001H17C18.6569 21.001 20 19.6578 20 18.001V8.51029C20 7.71464 19.6839 6.95158 19.1213 6.38898L16.612 3.87966C16.0494 3.31705 15.2863 3.00098 14.4907 3.00098H7C5.34315 3.00098 4 4.34412 4 6.00098V13.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M20 8.50098H16.5C15.3954 8.50098 14.5 7.60555 14.5 6.50098V3.00098\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M7 16.001V21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M9 19.001L7 21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                                <path d=\"M5 19.001L7 21.001\" stroke=\"#4274D4\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n                            </svg>"
+        }
+      ]
+    }
+  ]
+}

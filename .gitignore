@@ -1,0 +1,13 @@
+/node_modules
+/dist
+/.env
+/routes.local.js
+
+.vscode
+.sublime-workspace
+.sublime-project
+.idea
+.DS_Store
+.vagrant
+
+*.log

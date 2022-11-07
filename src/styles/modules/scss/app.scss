@@ -1,0 +1,215 @@
+// В этом файле должны располагаться стили для самого сайта и его элементов
+
+.main-info {
+    padding-top: 40px;
+    margin-bottom: 32px;
+
+    &__title-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 24px 0;
+        gap: 15px;
+    }
+
+    &__text p {
+        color: $text;
+
+        &:not(:last-child){
+            margin-bottom: 15px;
+        }
+    }
+}
+
+@include media($md) {
+    .main-info {
+        padding-top: 80px;
+    }
+}
+
+.filter {
+    margin-bottom: 24px;
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    &__label {
+        position: absolute;
+        top: 9px;
+        left: 16px;
+        color: #939393;
+        font-size: 11px;
+        line-height: 14px;
+        z-index: 5;
+    }
+
+    &__item {
+        position: relative;
+
+        &_wide {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        &_small {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__button {
+        flex: 0 0 131px;
+    }
+}
+
+@include media($lg) {
+    .filter__row {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .filter__item_wide {
+        flex: 0 0 33%;
+        max-width: 33%;
+    }
+    .filter__item_small {
+        flex: 0 0 14.5%;
+        max-width: 14.5%;
+    }
+}
+@include media($xl) {
+    .filter__item_wide {
+        flex: 0 0 35.5%;
+        max-width: 35.5%;
+    }
+}
+
+
+.cards {
+
+    &__more {
+        margin-top: 16px;
+    }
+    &__more-btn {
+        width: 100%;
+        height: 56px;
+        background-color: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: $black;
+    }
+}
+
+@include media($sm) {
+    .cards {
+        padding-bottom: 24px;
+    }
+}
+
+.card {
+    background-color: #ffffff;
+    -webkit-box-shadow: 3px 3px 13px -3px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 3px 3px 13px -3px rgba(34, 60, 80, 0.2);
+    box-shadow: 3px 3px 13px -3px rgba(34, 60, 80, 0.2);
+    padding: 24px 20px;
+    border-radius: 10px;
+
+     &:not(:last-child) {
+         margin-bottom: 16px;
+     }
+
+    &__tag {
+        display: inline-block;
+        color: $blue;
+        padding: 6px 12px 4px;
+        height: 24px;
+        background: rgba(66, 116, 212, 0.1);
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 14px;
+        text-transform: uppercase;
+
+        &_grey {
+            background-color: #F2F3F5;
+            color: #4E5966;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+        color: $black;
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__text {
+        color: #818C99;
+        font-size: 15px;
+        line-height: 20px;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .button {
+            width: 100%;
+        }
+    }
+
+    &__buttons .button:not(:last-child) {
+        margin-right: 8px;
+    }
+}
+@include media($sm) {
+    .card__buttons {
+        flex-direction: row;
+
+        .button {
+            width: 50%;
+        }
+    }
+}
+
+@include media($md) {
+    .card {
+        padding: 32px 24px;
+    }
+    .card__buttons {
+        display: flex;
+
+        .button {
+            width: auto;
+            display: inline-flex;
+        }
+    }
+    .card__title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .card__text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@media(max-width: 767.98px) {
+    .card .button_single {
+        width: 100%;
+    }
+}

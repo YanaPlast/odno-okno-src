@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
+@font-face {
+    font-family: 'Mazzard-SmB';
+    src: local('Mazzard H SemiBold'), local('Mazzard-H-SemiBold'),
+    url('../fonts/MazzardH-SemiBold.eot') format('embedded-opentype'),
+    url('../fonts/MazzardH-SemiBold.woff2') format('woff2'),
+    url('../fonts/MazzardH-SemiBold.woff') format('woff'),
+    url('../fonts/MazzardH-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mazzard';
+    src: local('Mazzard H Regular'), local('Mazzard-H-Regular'),
+    url('../fonts/MazzardH-Regular.eot') format('embedded-opentype'),
+    url('../fonts/MazzardH-Regular.woff2') format('woff2'),
+    url('../fonts/MazzardH-Regular.woff') format('woff'),
+    url('../fonts/MazzardH-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mazzard-M';
+    src: local('Mazzard H Medium'), local('Mazzard-H-Medium'),
+    url('../fonts/MazzardH-Medium.eot') format('embedded-opentype'),
+    url('../fonts/MazzardH-Medium.woff2') format('woff2'),
+    url('../fonts/MazzardH-Medium.woff') format('woff'),
+    url('../fonts/MazzardH-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+// Плагины
+@import "~normalize.css/normalize.css";
+
+// Переменные и миксины
+@import "mixins/variables";
+@import "mixins/mixins";
+
+// Базовые стили
+@import "modules/scss/base";
+
+// Стили шаблона и других элементов
+@import "modules/scss/layouts";
+@import "modules/scss/app";
+

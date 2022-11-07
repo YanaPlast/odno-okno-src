@@ -1,0 +1,119 @@
+{% extends './_layout.njk' %}
+
+{% block title %}
+Единая приёмная
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="main-info">
+    	<div class="container main-info__container">
+    	<div class="main-info__title-block">
+    	       <h1 class="main-info__title">Единая приемная «Одно окно»</h1>
+    	       <a href="#" class="main-info__link more-link">Подробнее</a>
+    	</div>
+    		<div class="main-info__text">
+    			<p>
+    			Единая приемная «Одно окно» предоставляет услуги, связанные с выдачей запрашиваемых документов и услуг. Оказание услуг концентрируется в одном месте – от подачи документов до выдачи результатов. </p>
+    			<p>
+    				Мы работаем над повышением оперативности процедур информационного обмена и качества предоставления наших услуг студентам, родителям, сотрудникам и преподавателям.
+    			</p>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="filter">
+    	<div class="container filter__container">
+    		<div class="filter__row">
+    			<div class="filter__item filter__item_wide">
+    			     <span class="filter__label">Раздел</span>
+    				 <div class="select filter__select" id="select-1"></div>
+    			</div>
+    			<div class="filter__item filter__item_wide">
+    			    <span class="filter__label">Услуга</span>
+                    <div class="select filter__select" id="select-2"></div>
+    			</div>
+    			<div class="filter__item filter__item_small" >
+    			    <span class="filter__label">Доступно онлайн</span>
+                    <div class="select filter__select" id="select-3"></div>
+    			</div>
+    			<div class="filter__item filter__button">
+                    <button type="submit" class="button button_submit button_blue">Показать</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="cards">
+    	<div class="container">
+    		<div class="cards__block">
+
+    			<div class="cards__item card" data-id="5" data-sphere="1" data-service="a">
+    				<div class="card__tag card__tag_grey">только лично</div>
+    				<div class="card__title">Перезачет дисциплин</div>
+    				<div class="card__text">Осуществляется на базе документа о среднем профессионального, высшем образовании или документа о неполном высшем образовании (справки установленного образца)</div>
+    				<div class="card__buttons">
+    					<a href="#" class="button button_blue button_action">
+                            <svg class="button__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9.00098V5.00098H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13 11.001L19 5.00098" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                 <path d="M20 13.001V15.001C20 17.7624 17.7614 20.001 15 20.001H9C6.23858 20.001 4 17.7624 4 15.001V9.00098C4 6.23955 6.23858 4.00098 9 4.00098H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+    						<span>Портал</span>
+    					</a>
+    					<a href="#" class="button button_action button_grey">
+                            <svg class="button__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 21.001H17C18.6569 21.001 20 19.6578 20 18.001V8.51029C20 7.71464 19.6839 6.95158 19.1213 6.38898L16.612 3.87966C16.0494 3.31705 15.2863 3.00098 14.4907 3.00098H7C5.34315 3.00098 4 4.34412 4 6.00098V13.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20 8.50098H16.5C15.3954 8.50098 14.5 7.60555 14.5 6.50098V3.00098" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 16.001V21.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 19.001L7 21.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 19.001L7 21.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+    						<span class="button__text">Скачать документ</span>
+    					</a>
+    				</div>
+    			</div>
+
+    			    			<div class="cards__item card" data-id="6" data-sphere="1" data-service="a">
+                    				<div class="card__tag card__tag_blue">доступно онлайн</div>
+                    				<div class="card__title">Перезачет дисциплин</div>
+                    				<div class="card__text">Осуществляется на базе документа о среднем профессионального, высшем образовании или документа о неполном высшем образовании (справки установленного образца)</div>
+                    				<div class="card__buttons">
+                    					<a href="#" class="button button_blue button_action">
+                                            <svg class="button__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <path d="M19 9.00098V5.00098H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M13 11.001L19 5.00098" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                 <path d="M20 13.001V15.001C20 17.7624 17.7614 20.001 15 20.001H9C6.23858 20.001 4 17.7624 4 15.001V9.00098C4 6.23955 6.23858 4.00098 9 4.00098H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                    						<span>Портал</span>
+                    					</a>
+                    					<a href="#" class="button button_action button_grey">
+                                            <svg class="button__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 21.001H17C18.6569 21.001 20 19.6578 20 18.001V8.51029C20 7.71464 19.6839 6.95158 19.1213 6.38898L16.612 3.87966C16.0494 3.31705 15.2863 3.00098 14.4907 3.00098H7C5.34315 3.00098 4 4.34412 4 6.00098V13.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M20 8.50098H16.5C15.3954 8.50098 14.5 7.60555 14.5 6.50098V3.00098" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M7 16.001V21.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M9 19.001L7 21.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5 19.001L7 21.001" stroke="#4274D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                    						<span class="button__text">Скачать документ</span>
+                    					</a>
+                    				</div>
+                    			</div>
+
+
+    		</div>
+
+    		<div class="cards__more">
+    		    <button type="submit" class="button cards__more-btn">&#8230; Показать ещё</button>
+    		</div>
+
+    	</div>
+    </div>
+
+
+{% endblock %}
+
+{% block footer %}
+    <h2>Hello!</h2>
+{% endblock %}
