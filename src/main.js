@@ -30,6 +30,7 @@ let select3 = new ItcCustomSelect("#select-3", {
         ["лично", "Только лично"],
         ["не важно", "Не важно"],
     ]
+
 });
 
 

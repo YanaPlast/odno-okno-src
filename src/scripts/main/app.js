@@ -13,6 +13,7 @@ export default class App {
         //назначаем функции-обработчики в зависимости от целевого элемента
         function documentActions(e) {
             const targetElement = e.target;
+
             // нажатие на кнопку ...Показать ещё
             if (targetElement.classList.contains("cards__more-btn")) {
                 getServiceItem(targetElement);
@@ -24,24 +25,82 @@ export default class App {
                     changeDependSelect(targetElement);
                 }
             }
-            // Нажатие на кнопку "Показать"
+            // --------->   Нажатие на кнопку "Показать"
             if (targetElement.classList.contains("button_submit")) {
-
-                updateCardsBlock();
+                updateCardsBlock(targetElement);
             }
         }
 
-        function updateCardsBlock() {
-            let chapterId = document.getElementById("select-1").dataset.chapter;
-            let serviceId = document.querySelector("#select-2 .itc-select__toggle").dataset.index;
-            let serviceStatus = document.querySelector("#select-3 .itc-select__toggle").dataset.index;
+        // --------> тут
+        let chapterId, serviceId, serviceStatus;
 
-            console.log("chapterId is", chapterId);
-            console.log("serviceId is", serviceId);
-            console.log("serviceStatus is",serviceStatus);
+        function updateCardsBlock(button) {
+            chapterId = document.getElementById("select-1").dataset.chapter;
+            serviceId = document.querySelector("#select-2 .itc-select__toggle").dataset.index;
+            serviceStatus = document.querySelector("#select-3 .itc-select__toggle").dataset.index;
+
+            //console.log("chapterId is", chapterId);
+            //console.log("serviceId is", serviceId);
+            //console.log("serviceStatus is",serviceStatus);
 
             let cardsWrapper = document.querySelector(".cards__block");
             cardsWrapper.innerHTML = "";
+
+            getAllServiceItems(button);
+
+            return chapterId, serviceId, serviceStatus
+        }
+
+        async function getAllServiceItems(button) {
+            if(!button.classList.contains("_pushed")) {
+                !button.classList.add("_pushed");
+                const file = "../services.json";
+                let response = await fetch (file, {
+                    method: "GET"
+                });
+                if(response.ok) {
+                    let result = await response.json();
+                    renderFilteredCard(result);
+                    button.classList.remove("_pushed");
+                    //button.remove();
+                } else {
+                    alert("Ошибка");
+                }
+            }
+        }
+
+        function renderFilteredCard(resultData) {
+            alert("Фильтруй!");
+            //console.log(resultData);
+            console.log("chapterId is", chapterId);
+            console.log("serviceId is", serviceId);
+            console.log("serviceStatus is", serviceStatus);
+
+            const cardsBlock = document.querySelector(".cards__block");
+
+            const whatWeHAve = resultData.services;
+            console.log(whatWeHAve);
+            console.log(typeof whatWeHAve); //мы имеем массив элементов. Каждый элемент массива проверяем на равенство его параметров переменным chapterId serviceId serviceStatus и наполняем и пушим только те, которые соответствуют всем трем условиям
+
+            resultData.services.forEach(item => {
+                if(serviceStatus == 2) {
+                    console.log("Статус не важен, так что выводим всё");
+                    if(item.chapter == chapterId && item.service == serviceId) {
+                        console.log("Айди выведенной карточки", item.id);
+                        // сюда пишем ссылку на функцию наполнения шаблона
+                    }
+                } else {
+                    console.log("Статус имеет значение. Фильтруем по трем параметрам");
+                    console.log("Значения переменных", chapterId, serviceId, serviceStatus);
+                    console.log("Значения из json-а", item.chapter, item.service, item.status);
+                    if(item.chapter == chapterId && item.service == serviceId && item.status == serviceStatus) {
+                        console.log("Айди выведенной карточки", item.id);
+                        // сюда пишем ссылку на функцию наполнения шаблона
+                    }
+                }
+
+            })
+
         }
 
         function changeDependSelect(element) {
@@ -91,8 +150,7 @@ export default class App {
             }
         }
 
-
-        // по клику на Показать еще загружаем данные об услугах
+        // по клику на ...Показать еще загружаем данные об услугах
         async function getServiceItem(button) {
             if(!button.classList.contains("_pushed")) {
                 !button.classList.add("_pushed");
@@ -114,6 +172,7 @@ export default class App {
         // из полученных данных собираем карточки
         function renderCard(data) {
             const cardsBlock = document.querySelector(".cards__block");
+            cardsBlock.innerHTML = "";
             data.services.forEach(item => {
                 const serviceId = item.id;
                 const serviceSphere = item.dataSphere;
