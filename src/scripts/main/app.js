@@ -10,107 +10,32 @@ export default class App {
         // отслеживаем клики на документе
         document.addEventListener("click", documentActions);
 
-        //назначаем функции-обработчики в зависимости от целевого элемента
+        //назначаем функции-обработчики элементам
         function documentActions(e) {
             const targetElement = e.target;
 
-            // нажатие на кнопку ...Показать ещё
-            if (targetElement.classList.contains("cards__more-btn")) {
-                getServiceItem(targetElement);
-                e.preventDefault();
-            }
             // выбор пункта в первом селекте
             if (targetElement.classList.contains("itc-select__option")) {
                 if(targetElement.closest(".select-1")) {
                     changeDependSelect(targetElement);
                 }
             }
-            // --------->   Нажатие на кнопку "Показать"
+            // Нажатие на кнопку "Показать"
             if (targetElement.classList.contains("button_submit")) {
                 updateCardsBlock(targetElement);
             }
-        }
 
-        // --------> тут
-        let chapterId, serviceId, serviceStatus;
-
-        function updateCardsBlock(button) {
-            chapterId = document.getElementById("select-1").dataset.chapter;
-            serviceId = document.querySelector("#select-2 .itc-select__toggle").dataset.index;
-            serviceStatus = document.querySelector("#select-3 .itc-select__toggle").dataset.index;
-
-            //console.log("chapterId is", chapterId);
-            //console.log("serviceId is", serviceId);
-            //console.log("serviceStatus is",serviceStatus);
-
-            let cardsWrapper = document.querySelector(".cards__block");
-            cardsWrapper.innerHTML = "";
-
-            getAllServiceItems(button);
-
-            return chapterId, serviceId, serviceStatus
-        }
-
-        async function getAllServiceItems(button) {
-            if(!button.classList.contains("_pushed")) {
-                !button.classList.add("_pushed");
-                const file = "../services.json";
-                let response = await fetch (file, {
-                    method: "GET"
-                });
-                if(response.ok) {
-                    let result = await response.json();
-                    renderFilteredCard(result);
-                    button.classList.remove("_pushed");
-                    //button.remove();
-                } else {
-                    alert("Ошибка");
-                }
+            // нажатие на кнопку ...Показать ещё
+            if (targetElement.classList.contains("cards__more-btn")) {
+                getServiceItem(targetElement);
             }
         }
 
-        function renderFilteredCard(resultData) {
-            alert("Фильтруй!");
-            //console.log(resultData);
-            console.log("chapterId is", chapterId);
-            console.log("serviceId is", serviceId);
-            console.log("serviceStatus is", serviceStatus);
-
-            const cardsBlock = document.querySelector(".cards__block");
-
-            const whatWeHAve = resultData.services;
-            console.log(whatWeHAve);
-            console.log(typeof whatWeHAve); //мы имеем массив элементов. Каждый элемент массива проверяем на равенство его параметров переменным chapterId serviceId serviceStatus и наполняем и пушим только те, которые соответствуют всем трем условиям
-
-            resultData.services.forEach(item => {
-                if(serviceStatus == 2) {
-                    console.log("Статус не важен, так что выводим всё");
-                    if(item.chapter == chapterId && item.service == serviceId) {
-                        console.log("Айди выведенной карточки", item.id);
-                        // сюда пишем ссылку на функцию наполнения шаблона
-                    }
-                } else {
-                    console.log("Статус имеет значение. Фильтруем по трем параметрам");
-                    console.log("Значения переменных", chapterId, serviceId, serviceStatus);
-                    console.log("Значения из json-а", item.chapter, item.service, item.status);
-                    if(item.chapter == chapterId && item.service == serviceId && item.status == serviceStatus) {
-                        console.log("Айди выведенной карточки", item.id);
-                        // сюда пишем ссылку на функцию наполнения шаблона
-                    }
-                }
-
-            })
-
-        }
-
+        // по клику на селект с разделами меняем список услуг в селекте с услугами
         function changeDependSelect(element) {
             let currentIndex = element.dataset.index;
-            console.log("currentIndex is - индекс который мы передаем, чтобы понять, какой список вставлять в селект", currentIndex);
-            console.log("element is", element)
             let dependSelect = document.getElementById("select-2");
-            let selectIndex = dependSelect.dataset.selectindex;
             let selectContainer = document.getElementById("selectContainer");
-            console.log("selectIndex is", selectIndex);
 
             if(currentIndex === "1") {
                 element.closest(".select-1").dataset.chapter = "1";
@@ -150,7 +75,75 @@ export default class App {
             }
         }
 
-        // по клику на ...Показать еще загружаем данные об услугах
+        // получаем выбранные в селектах параметры поиска услуг
+        let chapterId, serviceId, serviceStatus;
+
+        function updateCardsBlock(button) {
+            chapterId = document.getElementById("select-1").dataset.chapter;
+            serviceId = document.querySelector("#select-2 .itc-select__toggle").dataset.index;
+            serviceStatus = document.querySelector("#select-3 .itc-select__toggle").dataset.index;
+
+            let cardsWrapper = document.querySelector(".cards__block");
+            cardsWrapper.innerHTML = "";
+
+            getAllServiceItems(button);
+
+            return chapterId, serviceId, serviceStatus
+        }
+
+        // получаем объект с услугами
+        async function getAllServiceItems(button) {
+            if(!button.classList.contains("_pushed")) {
+                !button.classList.add("_pushed");
+                const file = "../services.json";
+                let response = await fetch (file, {
+                    method: "GET"
+                });
+                if(response.ok) {
+                    let result = await response.json();
+                    renderFilteredCard(result);
+                    button.classList.remove("_pushed");
+                } else {
+                    alert("Ошибка");
+                }
+            }
+        }
+
+        // выбираем из всех услуг услуги, подходящие под условия поиска
+        function renderFilteredCard(resultData) {
+            const cardsBlock = document.querySelector(".cards__block");
+            resultData.services.forEach(item => {
+                if(serviceStatus == 2) {
+                    // онлайн или лично - не имеет значения, значит выбираем только по двум параметрам
+                    if(item.chapter == chapterId && item.service == serviceId) {
+                        insertDataToTemplate(item, cardsBlock);
+                    }
+                } else {
+                    if(item.chapter == chapterId && item.service == serviceId && item.status == serviceStatus) {
+                        insertDataToTemplate(item, cardsBlock);
+                    }
+                }
+            })
+            // если ни одна услуга не подошла под параметры поиска - выводим сообщение
+            if(cardsBlock.querySelectorAll(".card").length < 1) {
+                cardsBlock.insertAdjacentHTML("beforeend", `
+                            <div class="warning">
+                                <p class="warning__title">Услуг не найдено.
+                                Попробуйте изменить параметры поиска.</p>
+                            </div>
+                        `)
+            }
+
+            if(document.querySelector(".cards__more-btn")) {
+                document.querySelector(".cards__more-btn").innerHTML = "Показать все услуги";
+            } else {
+                document.querySelector(".cards__more").insertAdjacentHTML("beforeend", `
+                    <button type="submit" class="button cards__more-btn">Показать все услуги</button>
+                `)
+            }
+        }
+
+        // по клику на "...Показать еще" загружаем данные об услугах
         async function getServiceItem(button) {
             if(!button.classList.contains("_pushed")) {
                 !button.classList.add("_pushed");
@@ -160,7 +153,6 @@ export default class App {
                 });
                 if(response.ok) {
                     let result = await response.json();
-                    //console.log(result);
                     renderCard(result);
                     button.classList.remove("_pushed");
                     button.remove();
@@ -169,71 +161,76 @@ export default class App {
                 }
             }
         }
+
         // из полученных данных собираем карточки
         function renderCard(data) {
             const cardsBlock = document.querySelector(".cards__block");
             cardsBlock.innerHTML = "";
             data.services.forEach(item => {
-                const serviceId = item.id;
-                const serviceSphere = item.dataSphere;
-                const serviceService = item.dataService;
-                const serviceTitle = item.title;
-                const serviceText = item.text;
-                const serviceLabel = item.label;
-                const serviceTagColor = item.labelClass;
-                const serviceButtons = item.buttons;
+                insertDataToTemplate(item, cardsBlock);
+            })
+        }
 
-                let cardTemplate = "";
-                let cardTemplateStart = `
+        //функция наполнения шаблона
+        function insertDataToTemplate(item, cardsBlock) {
+            const serviceId = item.id;
+            const serviceSphere = item.dataSphere;
+            const serviceService = item.dataService;
+            const serviceTitle = item.title;
+            const serviceText = item.text;
+            const serviceLabel = item.label;
+            const serviceTagColor = item.labelClass;
+            const serviceButtons = item.buttons;
+
+            let cardTemplate = "";
+            let cardTemplateStart = `
                                         <div class="cards__item card" data-id="${serviceId}" data-sphere="${serviceSphere}" data-service="${serviceService}">    
                                         `;
-                let cardTemplateEnd = "</div>";
-                let cardTemplateTop = `
+            let cardTemplateEnd = "</div>";
+            let cardTemplateTop = `
                         <div class="card__tag ${serviceTagColor}">${serviceLabel}</div>
                         <div class="card__title">${serviceTitle}</div>
                         <div class="card__text">${serviceText}</div>
                     `;
 
-                let cardTemplateBottom = "";
+            let cardTemplateBottom = "";
 
-                if(serviceButtons) {
-                    let cardTemplateBottomStart = "<div class='card__buttons'>";
-                    let cardTemplateBottomEnd = "</div>"
-                    let cardTemplateBottomContent = "";
+            if(serviceButtons) {
+                let cardTemplateBottomStart = "<div class='card__buttons'>";
+                let cardTemplateBottomEnd = "</div>"
+                let cardTemplateBottomContent = "";
 
-                    if(serviceButtons.length === 1) {
-                        serviceButtons.forEach(button => {
-                            cardTemplateBottomContent += `<a href="${button.url}" class="button button_action ${button.class} button_single">
+                if(serviceButtons.length === 1) {
+                    serviceButtons.forEach(button => {
+                        cardTemplateBottomContent += `<a href="${button.url}" class="button button_action ${button.class} button_single">
                                 ${button.svg}
                                 <span>${button.text}</span>
                                </a>
                                 `;
-                        });
-                    } else {
-                        serviceButtons.forEach(button => {
-                            cardTemplateBottomContent += `<a href="${button.url}" class="button button_action ${button.class}">
+                    });
+                } else {
+                    serviceButtons.forEach(button => {
+                        cardTemplateBottomContent += `<a href="${button.url}" class="button button_action ${button.class}">
                                 ${button.svg}
                                 <span>${button.text}</span>
                                </a>
                                 `;
-                        });
-                    }
-
-                    cardTemplateBottom += cardTemplateBottomStart;
-                    cardTemplateBottom += cardTemplateBottomContent;
-                    cardTemplateBottom += cardTemplateBottomEnd;
+                    });
                 }
 
-                cardTemplate += cardTemplateStart;
-                cardTemplate += cardTemplateTop;
-                cardTemplate += cardTemplateBottom;
-                cardTemplate += cardTemplateEnd;
+                cardTemplateBottom += cardTemplateBottomStart;
+                cardTemplateBottom += cardTemplateBottomContent;
+                cardTemplateBottom += cardTemplateBottomEnd;
+            }
 
-                cardsBlock.insertAdjacentHTML("beforeend", cardTemplate);
-            })
+            cardTemplate += cardTemplateStart;
+            cardTemplate += cardTemplateTop;
+            cardTemplate += cardTemplateBottom;
+            cardTemplate += cardTemplateEnd;
+
+            cardsBlock.insertAdjacentHTML("beforeend", cardTemplate);
         }
     }
-
 }
 
 

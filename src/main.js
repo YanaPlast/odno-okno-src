@@ -1,9 +1,8 @@
 import "@styles/main.scss";
 
 import ItcCustomSelect from "@main/select";
-//window.ItcCustomSelect = new ItcCustomSelect();
 
-let select1 = new ItcCustomSelect("#select-1", {
+new ItcCustomSelect("#select-1", {
     name: "questions",
     targetValue: "вопросы",
     options: [
@@ -12,7 +11,7 @@ let select1 = new ItcCustomSelect("#select-1", {
     ]
 });
 
-let select2 = new ItcCustomSelect("#select-2", {
+new ItcCustomSelect("#select-2", {
     name: "service",
     targetValue: "перезачёты",
     options: [
@@ -22,7 +21,7 @@ let select2 = new ItcCustomSelect("#select-2", {
     ]
 });
 
-let select3 = new ItcCustomSelect("#select-3", {
+new ItcCustomSelect("#select-3", {
     name: "не важно",
     targetValue: "не важно",
     options: [
@@ -32,11 +31,6 @@ let select3 = new ItcCustomSelect("#select-3", {
     ]
 
 });
-
-
-window.selectOne = select1;
-window.selectTwo = select2;
-window.selectThree = select3;
 
 import App from "@main/app";
 window.App = new App();
