@@ -83,14 +83,15 @@
 }
 
 @include media($sm) {
-    &__row {
+    .footer__row {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
     }
 
-    &__column {
-        flex: 0 0 32%;
+    .footer__column {
+        flex: 0 0 33%;
+        gap: 24px;
         margin-bottom: 0;
     }
 }

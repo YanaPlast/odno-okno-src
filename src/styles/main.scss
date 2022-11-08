@@ -2,7 +2,7 @@
 
 
 @font-face {
-    font-family: 'Mazzard-SmB';
+    font-family: 'Mazzard';
     src: local('Mazzard H SemiBold'), local('Mazzard-H-SemiBold'),
     url('../fonts/MazzardH-SemiBold.eot') format('embedded-opentype'),
     url('../fonts/MazzardH-SemiBold.woff2') format('woff2'),
@@ -22,12 +22,12 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'Mazzard-M';
+    font-family: 'Mazzard';
     src: local('Mazzard H Medium'), local('Mazzard-H-Medium'),
-    url('../fonts/MazzardH-Medium.eot') format('embedded-opentype'),
-    url('../fonts/MazzardH-Medium.woff2') format('woff2'),
-    url('../fonts/MazzardH-Medium.woff') format('woff'),
-    url('../fonts/MazzardH-Medium.ttf') format('truetype');
+    url("../fonts/MazzardH-Medium.eot") format('embedded-opentype'),
+    url("../fonts/MazzardH-Medium.woff2") format('woff2'),
+    url("../fonts/MazzardH-Medium.woff") format('woff'),
+    url("../fonts/MazzardH-Medium.ttf") format('truetype');
     font-weight: 500;
     font-style: normal;
 }
