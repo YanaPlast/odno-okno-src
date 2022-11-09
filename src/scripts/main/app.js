@@ -54,7 +54,7 @@ export default class App {
                 let selectedItem = "перезачёты";
                 let newListItems = [
                     ["перезачёты", "Перезачеты"],
-                    ["несогласие", "Несогласие на перезачет на оценку удовлетворительно (с зачет на экзамен)"],
+                    ["несогласие", "Несогласие на перезачет на оценку удовлетворительно (с зачета на экзамен)"],
                     ["вопросы", "Вопросы по перезачету"]
                 ];
                 updateDependSelect(selectedItem, newListItems);
@@ -230,6 +230,31 @@ export default class App {
 
             cardsBlock.insertAdjacentHTML("beforeend", cardTemplate);
         }
+
+        // показать ещё текст в мобильном виде
+        const mql = window.matchMedia("(max-width: 575.98px)");
+        const textBlock = document.querySelector(".main-info__text");
+
+        let event_list = ["load", "resize"];
+
+        event_list.forEach(function(event) {
+            window.addEventListener(event, function() {
+                if(mql.matches) {
+                    textBlock.addEventListener("click", openCloseMore);
+                } else {
+                    textBlock.removeEventListener("click", openCloseMore);
+                }
+            });
+        });
+
+        function openCloseMore() {
+            if(textBlock.classList.contains("_opened")) {
+                textBlock.classList.remove("_opened");
+            } else {
+                textBlock.classList.add("_opened");
+            }
+        }
+
     }
 }
 

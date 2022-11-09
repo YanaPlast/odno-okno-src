@@ -5,10 +5,6 @@
     padding-top: 16px;
     padding-bottom: 40px;
 
-    &__column {
-        margin-bottom: 16px;
-    }
-
     &__list {
         padding: 0;
         margin: 0;
@@ -21,7 +17,7 @@
         font-weight: 400;
         font-size: 13px;
         line-height: 16px;
-        margin-bottom: 5px;
+        margin-bottom: 12px;
     }
     &__list-item {
         position: relative;
@@ -42,6 +38,7 @@
     }
     &__contact {
         display: flex;
+        flex-wrap: wrap;
     }
     &__link {
         color: $black;
@@ -71,6 +68,11 @@
     }
 }
 
+@media(max-width: 575.98px) {
+    .footer__column:not(:last-child) {
+        margin-bottom: 16px;
+    }
+}
 @include media($md) {
     .footer {
         padding-bottom: 80px;
@@ -80,6 +82,9 @@
         font-size: 14px;
         line-height: 18px;
     }
+    .footer__list-item {
+        margin-bottom: 8px;
+    }
 }
 
 @include media($sm) {
@@ -87,6 +92,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        gap: 10px;
     }
 
     .footer__column {

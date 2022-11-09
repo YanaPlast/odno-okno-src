@@ -59,8 +59,13 @@
 // Padding удобнее для последующего размещения какого-то элемента в абсолютном позиционировании внутри этого блока.
 @mixin content {
     max-width: 1270px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @include media($sm) {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
 
     @include media($md) {
         padding-left: 40px;

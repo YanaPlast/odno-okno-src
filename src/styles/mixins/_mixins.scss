@@ -57,21 +57,27 @@
 // Ширина контента по-умолчанию. Значения указаны для примера - при создании нового проекта подставьте свои.
 // Вы можете использовать margin вместо padding.
 // Padding удобнее для последующего размещения какого-то элемента в абсолютном позиционировании внутри этого блока.
-@mixin content {
 
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
+@mixin content {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @include media($sm) {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
 
     @include media($md) {
         max-width: 950px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
 
     @include media($xl) {
-        max-width: 1160px;
-        padding-left: 20px;
-        padding-right: 20px;
+        max-width: 1500px;
+        padding-left: 7.2%;
+        padding-right: 7.2%;
     }
 }
